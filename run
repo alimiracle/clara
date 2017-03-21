@@ -1,0 +1,19 @@
+#!/bin/bash
+cp database /etc/cron.weekly/ 
+chmod +x /etc/cron.weekly/database 
+cp website /etc/cron.weekly/ 
+chmod +x /etc/cron.weekly/websites
+cp etcc /etc/cron.weekly/  
+chmod +x /etc/cron.weekly/etcc 
+cp config.sh /etc/cron.weekly/ 
+chmod +x user.sh
+dir=`pwd`user.sh
+echo "session optional pam_exec.so seteuid $dir" >> /etc/pam.d/sshd
+chmod +x sms
+chmod +x server
+chmod +x cpu
+chmod +x root
+chmod +x user
+chmod +xfree 
+chmod +x loop
+./loop&

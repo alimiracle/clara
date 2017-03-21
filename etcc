@@ -1,0 +1,18 @@
+#!/bin/sh
+source config.sh
+sql=`date '+%Y-%m-%d_%H-%M-%S'`.sql
+mysqldump --all-databases > $sql --user=$username --password $pas
+echo """
+hi
+i'm clara. a server Manager bot
+this is the Backup for your databases system
+"""|mutt -a $sql -s "database Backup for "`date '+%Y-%m-%d_%H-%M-%S'` -- $email
+rm $sqlsource config.sh
+config=`date '+%Y-%m-%d_%H-%M-%S'`.zip
+zip -r $config /etc
+echo """
+hi
+i'm clara. a server Manager bot
+this is the Backup for your config system
+"""|mutt -a $config -s "config system Backup for"`date '+%Y-%m-%d_%H-%M-%S'` -- $email
+rm $config

@@ -1,0 +1,29 @@
+#!bin/bash
+source config.sh
+sms(){
+echo "to: $nn">q.txt
+echo hi>>q.txt
+echo "i'm clara. a server Manager bot">>q.txt
+echo "the server Internet Connection is lost">>q.txt
+cp q.txt /var/spool/sms/outgoing.
+rm q.txt
+}
+
+# Apply test and execute on result
+test_log(){
+if [ -f lostconnection.lock ]
+then
+  echo "Lockfile in place"
+else
+sms
+fi
+}
+
+PINGS=`ping -c 1 -i 2 $your_gateway | wc -l`
+if [ $PINGS -lt 6 ]
+then
+echo q
+touch lostconnection.lock
+else
+echo "All is well"
+fi

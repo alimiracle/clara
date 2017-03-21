@@ -1,0 +1,10 @@
+#!/bin/bash
+COUNTER=0
+         while [  $COUNTER -lt 10 ]; do
+sleep 60
+./server.sh
+#./sms.sh
+./root.sh
+./free.sh
+./cpu.sh
+         done

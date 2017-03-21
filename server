@@ -1,0 +1,17 @@
+#!/bin/bash
+source config.sh
+echo >q.txt
+log1 =`cat /var/nginx/log/error.log`
+log2=`cat q.txt`
+    if [ "$log1" = "$log2" ]
+then
+q=1
+else
+echo """
+hi
+i'm clara. a server Manager bot
+you Have Error in your web server
+Error:
+$log1
+""" | mail -s "Error" $email
+echo >/var/log/nginx/error.log
