@@ -51,7 +51,7 @@ to run the bot
 install mutt, postfix 
 
 then type as root
-chmod +x 
+chmod +x run
 
 ./run
 
