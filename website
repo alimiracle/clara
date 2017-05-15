@@ -3,7 +3,10 @@ source config.sh
 config=`date '+%Y-%m-%d_%H-%M-%S'`.zip
 zip -r $config /var/www
 md5=$config
-
+if [ "$use_ftp" == "yes"
+then
+./ftp $ftp_username $ftp_pas $ftp_server $config
+else
 echo """
 hi
 i'm clara. a server Manager bot
@@ -11,4 +14,5 @@ this is the Backup for your all websites
 file md5:
 $md5
 """|mutt -a $config -s "Backup for all your websites"`date '+%Y-%m-%d_%H-%M-%S'` -- $email
+fi
 rm $config

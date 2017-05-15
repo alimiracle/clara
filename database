@@ -3,11 +3,16 @@ source config.sh
 sql=`date '+%Y-%m-%d_%H-%M-%S'`.sql
 mysqldump --all-databases > $sql --user=$username --password $pas
 md5=$sql
+if [ "use_ftp" == "yes" ]
+then
+./ftp $ftp_username $ftp_pas $ftp_server $sql
+else
 echo """
 hi
 i'm clara. a server Manager bot
 this is the Backup for your databases system
-fil md5:
+file md5:
 $md5
 """|mutt -a $sql -s "database Backup for "`date '+%Y-%m-%d_%H-%M-%S'` -- $email
+fi
 rm $sql

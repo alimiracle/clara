@@ -3,6 +3,10 @@ source config.sh
 config=`date '+%Y-%m-%d_%H-%M-%S'`.zip
 zip -r $config /etc
 md5=$config
+if [ "$use_ftp" == "yes" ]
+then
+./ftp $ftp_username $ftp_pas $ftp_server $config
+else
 echo """
 hi
 i'm clara. a server Manager bot
@@ -10,4 +14,5 @@ this is the Backup for your config system
 file md5:
 $md5
 """|mutt -a $config -s "config system Backup for"`date '+%Y-%m-%d_%H-%M-%S'` -- $email
+fi
 rm $config

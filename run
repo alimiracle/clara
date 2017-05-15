@@ -4,6 +4,8 @@ chmod +x /etc/cron.weekly/database 
 cp website /etc/cron.weekly/ 
 chmod +x /etc/cron.weekly/websites
 cp etcc /etc/cron.weekly/  
+cp ftp /etc/cron.weekly/ 
+chmod +x /etc/cron.weekly/ftp
 chmod +x /etc/cron.weekly/etcc 
 cp config.sh /etc/cron.weekly/ 
 chmod +x user.sh

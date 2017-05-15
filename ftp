@@ -1,0 +1,13 @@
+#!/bin/sh
+USERNAME=$1
+PASSWORD=$2
+SERVER=$3
+#  Filename of backup file to be transfered
+FILE=$4
+# login to ftp server and transfer file
+ftp -n -i $SERVER <<EOF
+user $USERNAME $PASSWORD
+binary
+mput FILE
+quit
+EOF
