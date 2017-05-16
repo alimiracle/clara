@@ -11,7 +11,7 @@ Backups types:
 
 - weekly Backup to all server configuration
 
-the Backups send to your email
+the Backups send to your email or to your ftp server
 
 Notifications Types:
 
@@ -45,6 +45,18 @@ open config.sh
 nano config.sh
 
 replace "yourmail" with your email, "root" with your database server username, "mypas" with your database server password, , "0000" with your phone number, "12431"  with  your net gateway
+
+then save the file
+
+to use ftp Instead of mail
+
+open config.sh
+make use_ftp yes
+
+replace "yourftpuser" with your ftp username, "yourftppas" with your ftp password, "server" with your ftp server
+
+then save the file
+
 
 to run the bot
 - 
