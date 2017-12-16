@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source /etc/clara.sh
 ip=`echo $SSH_CONNECTION | cut -d " " -f 1`
 if [ "$PAM_TYPE" != "close_session" ]; then
