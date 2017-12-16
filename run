@@ -1,4 +1,5 @@
 #!/bin/bash
+cp config.sh /etc/clara.sh
 cp database /etc/cron.weekly/ 
 chmod +x /etc/cron.weekly/database 
 cp website /etc/cron.weekly/ 

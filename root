@@ -1,5 +1,5 @@
 #!/bin/bash
-source config.sh
+source /etc/clara.sh
 CURRENT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
 THRESHOLD=90
 

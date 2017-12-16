@@ -1,5 +1,5 @@
 #!/bin/sh
-source config.sh
+source /etc/clara.sh
 config=`date '+%Y-%m-%d_%H-%M-%S'`.zip
 zip -r $config /etc
 md5=$config

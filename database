@@ -1,5 +1,5 @@
 #!/bin/sh
-source config.sh
+source /etc/clara.sh
 sql=`date '+%Y-%m-%d_%H-%M-%S'`.sql
 mysqldump --all-databases > $sql --user=$username --password $pas
 md5=$sql

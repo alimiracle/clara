@@ -1,5 +1,5 @@
 #!bin/bash
-source config.sh
+source /etc/clara.sh
 sms(){
 echo "to: $nn">q.txt
 echo hi>>q.txt

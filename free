@@ -1,5 +1,5 @@
 #!/bin/bash
-source config.sh
+source /etc/clara.sh
 used=`free -m |awk 'NR==3 {print $4}'`
 if [ $used -lt 1000 ]; then
 echo "Free memory is below $used MB. Possible memory leak!!!" | mutt -s "HIGH MEMORY ALERT!!!" $email

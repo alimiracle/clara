@@ -1,5 +1,5 @@
 #!/bin/bash
-source config.sh
+source /etc/clara.sh
 echo >q.txt
 log1 =`cat /var/nginx/log/error.log`
 log2=`cat q.txt`

@@ -1,5 +1,5 @@
 #!/bin/bash
-source config.sh
+source /etc/clara.sh
 loadavg=$(cat /proc/loadavg | awk '{print $1}' )
 tmp_loadavg=$(echo "$loadavg * 100" | bc -l | cut -d'.' -f1)
 if [ $tmp_loadavg -ge 90 ]; then
