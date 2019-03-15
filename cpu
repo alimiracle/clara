@@ -3,9 +3,21 @@ source /etc/clara.sh
 loadavg=$(cat /proc/loadavg | awk '{print $1}' )
 tmp_loadavg=$(echo "$loadavg * 100" | bc -l | cut -d'.' -f1)
 if [ $tmp_loadavg -ge 90 ]; then
+if [ ! -f cpu.txt ]; then
+echo >cpu.txt
   echo """
 hi
 i'm clara. a server Manager bot
 the server CPU   Load average is greater than 0.9
 """ | mutt -s "CPU Lo" $email
+fi
+else
+if [ -e "cpu.txt" ]; then
+rm -Rf cpu.txt
+  echo """
+hi
+i'm clara. a server Manager bot
+the server CPU returned to normal sstatuss
+""" | mutt -s "CPU good" $email
+fi
 fi
