@@ -4,9 +4,24 @@ CURRENT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
 THRESHOLD=90
 
 if [ "$CURRENT" -gt "$THRESHOLD" ] ; then
+if [ ! -f root.txt ]; then
+echo> root.txt
 echo """
 hi
 i'm clara. a server Manager bot
 Your root partition remaining free space is critically low. Used: $CURRENT%
 """ | mutt -s "root partition  free space is critically low" $email
+
+fi
+
+else
+if [ -e "root.txt" ]; then
+rm -Rf root.txt
+
+echo """
+hi
+i'm clara. a server Manager bot
+Your root partition returned to normal sstatuss. Used: $CURRENT%
+""" | mutt -s "root partition  free space is good" $email
+fi
 fi
